@@ -26,7 +26,13 @@ import warnings
 
 import numpy as np
 import xarray as xr
-from xarray.backends import api as backends_api
+from packaging import version
+
+if version.parse(xr.__version__) < version.parse("2025.9.1"):
+    from xarray.backends import api as backends_api
+else:
+    # Refactor: https://github.com/pydata/xarray/pull/10771/files
+    from xarray.backends import writers as backends_api
 
 from . import cfmessage, dataset, messages
 
