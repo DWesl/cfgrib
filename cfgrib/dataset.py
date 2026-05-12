@@ -415,8 +415,8 @@ def build_geography_coordinates(
             attributes=COORD_ATTRS["longitude"],
         )
         # latitude and longitude are dimension coordinates
-        geo_coord_vars["latitude"].attrs["axis"] = "Y"
-        geo_coord_vars["longitude"].attrs["axis"] = "X"
+        geo_coord_vars["latitude"].attributes["axis"] = "Y"
+        geo_coord_vars["longitude"].attributes["axis"] = "X"
     elif "geography" in encode_cf and grid_type in GRID_TYPES_2D_NON_DIMENSION_COORDS:
         geo_dims = ("y", "x")
         geo_shape = (first["Ny"], first["Nx"])
